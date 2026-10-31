@@ -1,904 +1,289 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MAYSHILLA DEWANTY</title>
-  <meta name="theme-color" content="#F7F4EC">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  </script>
+
+  <!-- PUZZLE GATE: PEMBUKA WEBSITE -->
   <style>
-    :root {
-      --cream: #F7F4EC;
-      --cream-deep: #EEE8DA;
-      --sage: #E1E5D9;
-      --olive: #69765A;
-      --olive-dark: #4D5A43;
-      --deep: #393F34;
-      --gold: #C8B486;
-      --gold-light: #E8DDBF;
-      --white: #FFFFFF;
-      --muted: #77786B;
-      --shadow: 0 14px 40px rgba(57, 63, 52, 0.09);
-      --serif: "Cormorant Garamond", Georgia, serif;
-      --sans: "Nunito", Arial, sans-serif;
-      --script: "Great Vibes", cursive;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--cream);
-      color: var(--deep);
-      font-family: var(--sans);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-    button, input, textarea { font: inherit; }
-    button { cursor: pointer; }
-    a { color: inherit; }
-    ::selection { background: var(--sage); color: var(--deep); }
-
-    .garden-bg {
+    .puzzle-gate {
       position: fixed;
       inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
-    .floating-leaf {
-      position: absolute;
-      top: -12%;
-      color: var(--olive);
-      opacity: .18;
-      font-size: 18px;
-      animation: leaf-fall 22s linear infinite;
-      will-change: transform;
-    }
-    @keyframes leaf-fall {
-      0% { transform: translate3d(0, -5vh, 0) rotate(0deg); opacity: 0; }
-      10% { opacity: .18; }
-      85% { opacity: .18; }
-      100% { transform: translate3d(70px, 115vh, 0) rotate(240deg); opacity: 0; }
-    }
-    @keyframes gentle-float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-7px); }
-    }
-    @keyframes soft-pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.035); }
-    }
-    @keyframes fade-up {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes turn-record {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .site-wrap { position: relative; z-index: 1; }
-    .topbar {
-      width: min(1100px, calc(100% - 36px));
-      margin: 0 auto;
-      padding: 22px 0;
+      z-index: 9999;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-    .brand {
-      font-family: var(--serif);
-      font-size: 1.35rem;
-      font-weight: 600;
-      letter-spacing: .04em;
-      color: var(--olive-dark);
-    }
-    .top-link {
-      text-decoration: none;
-      font-size: .88rem;
-      color: var(--olive-dark);
-      border-bottom: 1px solid var(--gold);
-      padding-bottom: 3px;
-    }
-
-    .hero {
-      width: min(1100px, calc(100% - 36px));
-      margin: 0 auto;
-      min-height: 610px;
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      align-items: center;
-      gap: 44px;
-      padding: 45px 0 70px;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--olive);
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      font-size: .72rem;
-      font-weight: 800;
-    }
-    .eyebrow::before, .eyebrow::after {
-      content: "";
-      display: block;
-      width: 22px;
-      height: 1px;
-      background: var(--gold);
-    }
-    h1, h2, h3, p { margin-top: 0; }
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(3.2rem, 6vw, 5.8rem);
-      line-height: .98;
-      font-weight: 500;
-      letter-spacing: -.035em;
-      margin: 23px 0 20px;
-    }
-    .hero h1 em {
-      color: var(--olive);
-      font-weight: 500;
-    }
-    .hero-copy {
-      max-width: 500px;
-      color: #686B5F;
-      font-size: 1.02rem;
-      margin-bottom: 29px;
-    }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
       justify-content: center;
-      gap: 9px;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      padding: 12px 21px;
-      text-decoration: none;
-      transition: transform .8s ease-in-out, background-color .8s ease-in-out, color .8s ease-in-out, box-shadow .8s ease-in-out;
-      font-size: .91rem;
-      font-weight: 800;
+      padding: 20px;
+      background:
+        radial-gradient(circle at top, #fffdf7, transparent 60%),
+        #F7F4EC;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity .8s ease, visibility .8s ease;
     }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary {
-      background: var(--olive-dark);
-      color: var(--white);
-      box-shadow: 0 8px 22px rgba(77, 90, 67, .16);
-    }
-    .btn-primary:hover { background: var(--deep); box-shadow: 0 12px 26px rgba(77, 90, 67, .2); }
-    .btn-secondary {
-      border-color: rgba(105, 118, 90, .35);
-      color: var(--olive-dark);
-      background: rgba(255,255,255,.45);
-    }
-    .btn-secondary:hover { background: var(--sage); }
-    .tiny-note { color: var(--muted); font-size: .8rem; margin-top: 18px; }
 
-    .hero-art {
-      min-height: 440px;
-      position: relative;
-      display: grid;
-      place-items: center;
+    .puzzle-gate.unlocked {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
-    .art-halo {
-      width: min(390px, 90%);
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #FDFBF5 0, #E7E9DE 55%, #D6DDCC 100%);
-      border: 1px solid rgba(200,180,134,.5);
-      position: absolute;
-      animation: gentle-float 8s ease-in-out infinite;
-    }
-    .art-frame {
-      width: min(320px, 76%);
-      aspect-ratio: 4 / 5;
-      border: 10px solid rgba(255,255,255,.76);
-      outline: 1px solid rgba(200,180,134,.7);
-      border-radius: 48% 48% 12px 12px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: var(--shadow);
-      transform: rotate(2deg);
-      background: var(--sage);
-    }
-    .art-frame img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.82); }
-    .art-frame .image-placeholder {
-      width: 100%; height: 100%; display: grid; place-items: center;
-      text-align: center; padding: 20px; color: var(--olive-dark);
-      background: linear-gradient(145deg, #E8EBDD, #F7F4EC);
-      font-family: var(--serif); font-size: 1.5rem;
-    }
-    .floating-note {
-      position: absolute;
-      background: rgba(255,255,255,.88);
-      border: 1px solid rgba(200,180,134,.55);
-      box-shadow: var(--shadow);
-      border-radius: 14px;
-      padding: 13px 17px;
-      font-family: var(--serif);
-      font-size: 1.18rem;
-      animation: gentle-float 8s ease-in-out infinite;
-    }
-    .note-one { left: 0; top: 22%; transform: rotate(-5deg); }
-    .note-two { right: 0; bottom: 17%; transform: rotate(4deg); animation-delay: 1s; }
-    .note-leaf { color: var(--olive); font-size: 1.2rem; }
 
-    section.content-section {
-      width: min(1000px, calc(100% - 36px));
-      margin: 0 auto;
-      padding: 72px 0;
+    .puzzle-content {
+      width: min(440px, 100%);
+      text-align: center;
+      animation: fade-up 1s ease both;
     }
-    .section-head { text-align: center; max-width: 620px; margin: 0 auto 34px; }
-    .section-kicker {
-      color: var(--olive);
+
+    .puzzle-kicker {
+      color: #69765A;
       font-size: .72rem;
       font-weight: 800;
+      letter-spacing: .2em;
       text-transform: uppercase;
-      letter-spacing: .18em;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
-    .section-head h2 {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 5vw, 3.7rem);
-      line-height: 1.05;
+
+    .puzzle-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      color: #393F34;
+      font-size: clamp(2.4rem, 8vw, 3.5rem);
       font-weight: 500;
-      margin-bottom: 13px;
-    }
-    .section-head p { color: #737568; margin-bottom: 0; }
-    .section-rule {
-      width: 72px; height: 1px; background: var(--gold); margin: 18px auto 0;
+      line-height: 1;
+      margin-bottom: 12px;
     }
 
-    .music-library {
+    .puzzle-description {
+      color: #77786B;
+      font-size: .9rem;
+      margin-bottom: 25px;
+    }
+
+    .puzzle-board {
+      width: min(340px, 85vw);
+      aspect-ratio: 1;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-      max-width: 900px;
-      margin: 0 auto;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      padding: 7px;
+      margin: 0 auto 20px;
+      background: #E1E5D9;
+      border: 1px solid #C8B486;
+      border-radius: 17px;
+      box-shadow: 0 15px 40px rgba(57,63,52,.13);
     }
-    .music-panel {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 28px;
-      align-items: center;
-      min-width: 0;
-      margin: 0;
-      padding: 24px;
-      border: 1px solid rgba(105,118,90,.2);
-      background: rgba(255,255,255,.66);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-    }
-    .record-wrap { display: grid; place-items: center; }
-    .record {
-      width: 132px; aspect-ratio: 1; border-radius: 50%;
-      background: repeating-radial-gradient(circle, #30372F 0 3px, #41483F 4px 5px, #272D27 6px 8px);
-      display: grid; place-items: center;
-      box-shadow: 0 8px 18px rgba(30,35,29,.22);
-      animation: turn-record 12s linear infinite;
-      animation-play-state: paused;
-    }
-    .record.playing { animation-play-state: running; }
-    .record-label {
-      width: 42%; aspect-ratio: 1; border-radius: 50%;
-      background: var(--gold); border: 4px solid #E8DDBF;
-      display: grid; place-items: center; color: var(--deep); font-size: 1.1rem;
-    }
-    .music-info h3 { font-family: var(--serif); font-size: 1.8rem; margin: 0 0 3px; font-weight: 600; }
-    .music-info p { color: #77786B; font-size: .9rem; margin-bottom: 17px; }
-    .music-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
-    .play-button {
-      border: 0; border-radius: 999px; background: var(--olive-dark); color: white;
-      padding: 10px 17px; font-weight: 800; transition: background-color .8s ease-in-out, transform .8s ease-in-out;
-    }
-    .play-button:hover { background: var(--deep); transform: translateY(-2px); }
-    .music-status { color: var(--olive); font-size: .8rem; }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  max-width: 1040px;
-  margin: 0 auto;
-}
-    .memory-card {
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      background: var(--sage);
-      border: 7px solid rgba(255,255,255,.82);
-      box-shadow: var(--shadow);
-      cursor: zoom-in;
-      min-height: 260px;
-      transition: transform .8s ease-in-out, box-shadow .8s ease-in-out;
-    }
-    .memory-card:hover { transform: translateY(-4px) rotate(.3deg); box-shadow: 0 18px 42px rgba(57,63,52,.13); }
-    .memory-card img { display: block; width: 100%; height: 340px; object-fit: cover; filter: saturate(.85); transition: transform 1.2s ease-in-out; }
-    .memory-card:hover img { transform: scale(1.035); }
-.memory-card.watermark-card {
-  grid-column: 1 / -1;
-}
-
-.memory-card.watermark-card img {
-  height: 500px;
-  object-position: center 42%;
-}
-    .memory-caption {
-      position: absolute; inset: auto 0 0; padding: 35px 20px 17px;
-      color: white; background: linear-gradient(transparent, rgba(30,39,29,.72));
-      font-family: var(--serif); font-size: 1.45rem;
-    }
-    .gallery-tip { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 18px; }
-
-    .reasons-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 13px;
-    }
-    .reason-card {
-      min-height: 165px;
-      perspective: 1000px;
-      cursor: pointer;
+    .puzzle-piece {
       border: 0;
-      background: transparent;
       padding: 0;
-      text-align: center;
-    }
-    .reason-inner {
-      min-height: 165px; height: 100%; position: relative;
-      transform-style: preserve-3d;
-      transition: transform 1s ease-in-out;
-    }
-    .reason-card.flipped .reason-inner { transform: rotateY(180deg); }
-    .reason-front, .reason-back {
-      position: absolute; inset: 0; border-radius: 16px; padding: 15px 12px;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      backface-visibility: hidden;
-      border: 1px solid rgba(105,118,90,.2);
-      box-shadow: 0 7px 20px rgba(57,63,52,.055);
-    }
-    .reason-front { background: rgba(255,255,255,.75); }
-    .reason-back { background: var(--sage); transform: rotateY(180deg); }
-    .reason-number { color: var(--gold); font-family: var(--serif); font-size: 1.8rem; line-height: 1; }
-    .reason-front span:last-child { color: var(--olive-dark); font-size: .83rem; font-weight: 800; margin-top: 9px; }
-    .reason-icon { font-size: 1.35rem; margin-bottom: 7px; }
-    .reason-back p { font-family: var(--serif); font-size: 1.05rem; line-height: 1.3; margin: 0; color: var(--deep); }
-
-    .letter-panel {
-      max-width: 760px; margin: 0 auto; text-align: center;
-      padding: 42px 25px; border-radius: 22px;
-      background: linear-gradient(135deg, rgba(255,255,255,.82), rgba(225,229,217,.6));
-      border: 1px solid rgba(200,180,134,.5); box-shadow: var(--shadow);
-      position: relative; overflow: hidden;
-    }
-    .letter-panel::before, .letter-panel::after {
-      content: "❧"; position: absolute; color: var(--olive); opacity: .24; font-size: 4rem;
-    }
-    .letter-panel::before { top: 2px; left: 15px; transform: rotate(-25deg); }
-    .letter-panel::after { bottom: -8px; right: 15px; transform: rotate(155deg); }
-    .letter-seal { font-size: 2rem; color: var(--olive); }
-    .letter-panel h3 { font-family: var(--serif); font-size: 2.2rem; font-weight: 500; margin: 8px 0 10px; }
-    .letter-panel p { max-width: 470px; margin: 0 auto 23px; color: #707366; }
-
-    .closing {
-      text-align: center; padding: 50px 18px 65px;
-      color: var(--olive-dark);
-    }
-    .closing .script { font-family: var(--script); font-size: clamp(2.7rem, 6vw, 4rem); line-height: 1.1; }
-    .closing p { color: var(--muted); font-size: .85rem; margin: 10px 0 0; }
-
-    .modal, .lightbox {
-      position: fixed; inset: 0; z-index: 20; display: none;
-      align-items: center; justify-content: center; padding: 20px;
-      background: rgba(31,37,30,.58); backdrop-filter: blur(5px);
-    }
-    .modal.open, .lightbox.open { display: flex; animation: fade-up .8s ease both; }
-    .letter-paper {
-      position: relative; width: min(620px, 100%); max-height: 85vh; overflow-y: auto;
-      background: #FBF8F0; border: 1px solid var(--gold); border-radius: 12px;
-      padding: clamp(25px, 5vw, 48px); box-shadow: 0 25px 80px rgba(0,0,0,.22);
-    }
-    .close-button {
-      position: absolute; top: 12px; right: 14px; width: 38px; height: 38px;
-      border: 1px solid rgba(105,118,90,.25); background: white; color: var(--deep);
-      border-radius: 50%; font-size: 1.2rem;
-    }
-    .letter-paper .script { font-family: var(--script); color: var(--olive); font-size: 2.5rem; margin-bottom: 6px; }
-    .letter-paper h2 { font-family: var(--serif); font-weight: 500; font-size: 2rem; margin-bottom: 18px; }
-    .letter-body { white-space: pre-line; color: #55584D; }
-    .letter-sign { font-family: var(--script); font-size: 2rem; color: var(--olive); margin: 20px 0 0; }
-    .lightbox img { max-width: min(900px, 92vw); max-height: 85vh; object-fit: contain; border: 7px solid white; border-radius: 8px; box-shadow: var(--shadow); }
-    .lightbox .close-button { top: 20px; right: 20px; }
-
-    footer { text-align: center; color: #88897D; font-size: .76rem; padding: 0 18px 28px; }
-
-    @media (max-width: 850px) {
-      .hero { grid-template-columns: 1fr; gap: 15px; padding-top: 30px; text-align: center; }
-      .hero-copy { margin-left: auto; margin-right: auto; }
-      .hero-actions { justify-content: center; }
-      .hero-art { min-height: 390px; }
-      .reasons-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .music-library { grid-template-columns: 1fr; max-width: 520px; }
-      .music-panel { grid-template-columns: 120px 1fr; gap: 20px; }
-      .record { width: 110px; }
-    }
-    @media (max-width: 560px) {
-      .topbar { width: calc(100% - 28px); padding: 16px 0; }
-      .brand { font-size: 1.15rem; }
-      .top-link { font-size: .78rem; }
-      .hero { width: calc(100% - 30px); min-height: auto; padding: 40px 0 45px; }
-      .hero h1 { font-size: clamp(3rem, 15vw, 4.3rem); }
-      .hero-art { min-height: 330px; }
-      .art-halo { width: 290px; }
-      .art-frame { width: 225px; }
-      .floating-note { font-size: 1rem; padding: 10px 12px; }
-      .note-one { left: 0; top: 18%; }
-      .note-two { right: 0; bottom: 12%; }
-      section.content-section { width: calc(100% - 30px); padding: 52px 0; }
-      .music-panel { grid-template-columns: 1fr; text-align: center; padding: 24px 18px; }
-      .music-controls { justify-content: center; }
-      .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-      .memory-card img { height: 180px; }
-      .memory-card.watermark-card { grid-column: 1 / -1; }
-      .memory-card.watermark-card img { height: 320px; }
-      .reasons-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-      .reason-card, .reason-inner { min-height: 150px; }
-      .reason-front, .reason-back { padding: 12px 9px; }
-      .letter-panel { padding: 34px 18px; }
+      border-radius: 8px;
+      background-image: url("foto-14.png");
+      background-size: 300% 300%;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      transition: transform .2s ease, outline .2s ease;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
+    .puzzle-piece.selected {
+      outline: 3px solid #69765A;
+      outline-offset: -3px;
+      transform: scale(.94);
+    }
+
+    .puzzle-piece:focus-visible {
+      outline: 3px solid #C8B486;
+      outline-offset: -3px;
+    }
+
+    .puzzle-message {
+      min-height: 25px;
+      color: #69765A;
+      font-size: .85rem;
+      margin-bottom: 15px;
+    }
+
+    .puzzle-enter {
+      display: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 24px;
+      color: white;
+      background: #4D5A43;
+      font-weight: 800;
+      box-shadow: 0 8px 22px rgba(77,90,67,.16);
+      animation: soft-pulse 2s ease-in-out infinite;
+    }
+
+    .puzzle-enter.show {
+      display: inline-block;
+    }
+
+    .puzzle-hint {
+      color: #99998D;
+      font-size: .75rem;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .puzzle-board {
+        width: min(310px, 85vw);
       }
     }
   </style>
-</head>
-<body>
-  <div class="garden-bg" id="gardenBg" aria-hidden="true"></div>
 
-  <div class="site-wrap">
-    <header class="topbar">
-      <div class="brand">♡</div>
-      <a class="top-link" href="#letter">a note for you</a>
-    </header>
+  <div class="puzzle-gate" id="puzzleGate">
+    <div class="puzzle-content">
 
-    <main>
-      <section class="hero" id="home">
-        <div class="hero-text">
-          <div class="eyebrow">Dibuat oleh Joshua Martiennius Sujana</div>
-          <h1>For MD<br><em>Mayshilla Dewanty</em></h1>
-          <p class="hero-copy">
-            Kalau dunia terkadang terasa begitu ramai, semoga halaman kecil ini bisa jadi tempat sederhana buat kamu beristirahat sejenak. Di sini, ada sedikit hadiah, hal-hal kecil yang aku suka dari kamu, dan beberapa kata yang ingin aku sampaikan.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#memories">Jelajahi taman ini<span>↗</span></a>
-            <button class="btn btn-secondary" type="button" id="openLetterHero">A letter</button>
-          </div>
-          <p class="tiny-note">A small corner of the internet, made especially for you.</p>
-        </div>
-
-        <div class="hero-art">
-          <div class="art-halo"></div>
-          <div class="art-frame">
-            <img src="dia.jpg" alt="A beautiful girl" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
-            <div class="image-placeholder" style="display:none">A little reminder that beautiful things grow gently.</div>
-          </div>
-          <div class="floating-note note-one">you make life softer</div>
-          <div class="floating-note note-two">one of my favorite people</div>
-        </div>
-      </section>
-
-      
-<section class="content-section" id="music">
-  <div class="section-head">
-    <div class="section-kicker">music</div>
-    <h2>This music is for you.</h2>
-    <p>Two songs, each with its own little vinyl record. ♡</p>
-    <div class="section-rule"></div>
-  </div>
-
-  <div class="music-library">
-    <div class="music-panel">
-      <div class="record-wrap">
-        <div class="record" id="recordOne">
-          <div class="record-label">♡</div>
-        </div>
+      <div class="puzzle-kicker">
+        A little game before you enter
       </div>
-      <div class="music-info">
-        <h3>A song for you</h3>
-        <p>Soft song · made for a little moment</p>
-        <audio id="musicOne" loop preload="metadata">
-          <source src="lagu-1.mp3" type="audio/mpeg">
-          Browser kamu tidak mendukung audio.
-        </audio>
-        <div class="music-controls">
-          <button class="play-button" id="toggleOne" type="button">▶ Play music</button>
-          <span class="music-status" id="statusOne">Ready when you are ♡</span>
-        </div>
+
+      <h1 class="puzzle-title">
+        One little puzzle ♡
+      </h1>
+
+      <p class="puzzle-description">
+        Sebelum masuk, coba susun kembali potongan foto ini.
+        Take your time.
+      </p>
+
+      <div class="puzzle-board" id="puzzleBoard"></div>
+
+      <div class="puzzle-message" id="puzzleMessage">
+        Tap two pieces to switch their places.
       </div>
+
+      <button class="puzzle-enter" id="puzzleEnter" type="button">
+        ENTER MY LITTLE WORLD ♡
+      </button>
+
+      <p class="puzzle-hint">
+        A little something made just for you.
+      </p>
+
     </div>
-
-    <div class="music-panel">
-      <div class="record-wrap">
-        <div class="record" id="recordTwo">
-          <div class="record-label">✿</div>
-        </div>
-      </div>
-      <div class="music-info">
-        <h3>Another song just for you</h3>
-        <p>Soft song · made for a little moment</p>
-        <audio id="musicTwo" loop preload="metadata">
-          <source src="lagu-2.mp3" type="audio/mpeg">
-          Browser kamu tidak mendukung audio.
-        </audio>
-        <div class="music-controls">
-          <button class="play-button" id="toggleTwo" type="button">▶ Play music</button>
-          <span class="music-status" id="statusTwo">Ready when you are ♡</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-      <section class="content-section" id="memories">
-        <div class="section-head">
-          <div class="section-kicker">little moments</div>
-          <h2>ALL THE PHOTOS YOU GAVE ME</h2>
-          <div class="section-rule"></div>
-        </div>
-        <div class="gallery-grid">
-          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto pertama">
-            <img class="memory-photo" src="foto-1.png" alt="Photo 1" loading="lazy">
-            <div class="memory-caption">FIRST TIME SERAGAMAN</div>
-          </div>
-          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto kedua">
-            <img class="memory-photo" src="foto-2.png" alt="Photo 2" loading="lazy">
-            <div class="memory-caption">NGADON RISOL</div>
-          </div>
-          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto ketiga">
-            <img class="memory-photo" src="foto-3.png" alt="Photo 3" loading="lazy">
-            <div class="memory-caption">UTIWI</div>
-          </div>
-          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto keempat">
-            <img class="memory-photo" src="foto-4.png" alt="Photo 4" loading="lazy">
-            <div class="memory-caption">PULANG NGANTOR</div>
-          </div>
-          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto kelima">
-            <img class="memory-photo" src="foto-5.png" alt="Photo 5" loading="lazy">
-            <div class="memory-caption">SELESAI NGADON RISOL</div>
-          </div>
-          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto keenam">
-            <img class="memory-photo" src="foto-6.png" alt="Photo 6" loading="lazy">
-            <div class="memory-caption">SEBELUM BERANGKAT LDK HIMA</div>
-          </div>
-          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto ketujuh">
-            <img class="memory-photo" src="foto-7.png" alt="Photo 7" loading="lazy">
-            <div class="memory-caption">OTW LDK HIMA</div>
-          </div>
-          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto kelapan">
-            <img class="memory-photo" src="foto-8.png" alt="Photo 8" loading="lazy">
-            <div class="memory-caption">LAGI LDK HIMA</div>
-          </div>
-          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto kesembilan">
-            <img class="memory-photo" src="foto-9.png" alt="Photo 9" loading="lazy">
-            <div class="memory-caption">PELAYANAN GEREJA</div>
-          </div>
-          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto kesepuluh">
-            <img class="memory-photo" src="foto-10.png" alt="Photo 10" loading="lazy">
-            <div class="memory-caption">KELAR PELAYANAN KE TEAZI</div>
-          </div>
-          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto kesebelas">
-            <img class="memory-photo" src="foto-11.png" alt="Photo 11" loading="lazy">
-            <div class="memory-caption">SALAH MASUK KELAS MANAGEMENT</div>
-          </div>
-          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto keduabelas">
-            <img class="memory-photo" src="foto-12.png" alt="Photo 12" loading="lazy">
-            <div class="memory-caption">BRO DANIEL MIJITIN KAKI CECEHNYA</div>
-          </div>
-          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto ketigabelas">
-            <img class="memory-photo" src="foto-13.png" alt="Photo 13" loading="lazy">
-            <div class="memory-caption">KECAPEAN BIKIN RISOL</div>
-          </div>
-          <div class="memory-card watermark-card" tabindex="0" role="button" aria-label="Perbesar foto keempatbelas">
-            <img class="memory-photo" src="foto-14.png" alt="Photo 14" loading="lazy">
-            <div class="memory-caption">INI TUH WATERMARK</div>
-          </div>
-        </div>
-        <p class="gallery-tip">Tip: klik foto untuk melihatnya lebih besar.</p>
-      </section>
-
-      <section class="content-section" id="reasons">
-        <div class="section-head">
-          <div class="section-kicker">ten little reasons</div>
-          <h2>Things I adore about you</h2>
-          <p>Klik setiap kartu untuk mengetahui "I adore 'bout u"</p>
-          <div class="section-rule"></div>
-        </div>
-        <div class="reasons-grid" id="reasonsGrid"></div>
-      </section>
-
-      <section class="content-section" id="letter">
-        <div class="letter-panel">
-          <div class="letter-seal">✿</div>
-          <h3>A Poetry</h3>
-          <p>Ada beberapa hal yang lebih nyaman ditulis pelan-pelan, supaya kamu bisa membacanya kapan pun kamu mau.</p>
-          <button class="btn btn-primary" id="openLetter" type="button">Open</button>
-        </div>
-      </section>
-
-      <div class="closing">
-        <div class="script">Mayshilla Dewanty</div>
-        <p>something you’ve never seen before</p>
-      </div>
-    </main>
-    <footer>Thanks udah buka</footer>
-  </div>
-
-  <div class="modal" id="letterModal" role="dialog" aria-modal="true" aria-labelledby="letterTitle">
-    <div class="letter-paper">
-      <button class="close-button" id="closeLetter" type="button" aria-label="Tutup surat">×</button>
-      <div class="script">for you, Mayshilla</div>
-      <h2 id="letterTitle">A little letter from me</h2>
-      <div class="letter-body" id="letterBody"></div>
-      <div class="letter-sign">with love ♡ (friend)</div>
-    </div>
-  </div>
-
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto kenangan diperbesar">
-    <button class="close-button" id="closeLightbox" type="button" aria-label="Tutup foto">×</button>
-    <img id="lightboxImage" src="" alt="Foto kenangan diperbesar">
   </div>
 
   <script>
-    const loveLetter = `Hi, Lanny
+    (() => {
+      const gate = document.getElementById("puzzleGate");
+      const board = document.getElementById("puzzleBoard");
+      const message = document.getElementById("puzzleMessage");
+      const enterButton = document.getElementById("puzzleEnter");
 
-Kita adalah dua orang  
-yang dipertemukan dengan banyak alasan.
+      let pieces = [0,1,2,3,4,5,6,7,8];
+      let selected = null;
+      let completed = false;
 
-Awalnya hanya saling sapa,  
-bertukar cerita,  
-menertawakan hal-hal sederhana,  
-lalu perlahan terbiasa  
-dengan hadirnya satu sama lain.
+      function shufflePuzzle() {
+        pieces = [0,1,2,3,4,5,6,7,8];
 
-Kita menyebutnya teman.  
-Dan untuk saat ini,  
-barangkali memang itu nama yang paling tepat.
+        let previousMove = -1;
 
-Aku tidak ingin terburu-buru  
-memberi nama pada sesuatu  
-yang bahkan belum tahu  
-akan tumbuh ke arah mana.
+        for (let i = 0; i < 100; i++) {
+          const first = Math.floor(Math.random() * 9);
+          let second;
 
-Sebab, bukankah ada hal-hal  
-yang justru menjadi indah  
-karena dibiarkan berjalan sebagaimana mestinya?
+          do {
+            second = Math.floor(Math.random() * 9);
+          } while (
+            second === first ||
+            second === previousMove
+          );
 
-Seperti dua orang  
-yang awalnya hanya ingin saling mengenal,  
-lalu tanpa sadar mulai mengingat  
-hal-hal kecil yang sering terlupakan orang lain.
+          [pieces[first], pieces[second]] =
+            [pieces[second], pieces[first]];
 
-Tapi sudahlah,  
-aku tidak ingin menebak-nebak masa depan.
-
-Hari ini, kita masih dua teman  
-yang bisa tertawa tanpa perlu alasan,  
-bercerita tanpa takut kehabisan topik,  
-dan saling hadir tanpa harus menjanjikan apa-apa.
-
-Kalau nanti ternyata  
-jalan kita tetap sebagai teman,  
-aku harap kita tidak kehilangan  
-hal-hal baik yang sudah kita punya.
-
-Namun, kalau suatu hari nanti  
-waktu membawa kita pada perasaan yang berbeda,  
-kalau percakapan sederhana  
-mulai terasa lebih istimewa,  
-dan kalau diam-diam kita mulai berharap  
-untuk menjadi sedikit lebih dekat—
-
-barangkali,  
-kita akan mengerti  
-mengapa semuanya harus dimulai  
-dengan menjadi teman lebih dahulu.
-
-Untuk sekarang,  
-biarlah kita berjalan pelan-pelan.
-
-Tidak perlu memaksa bunga untuk mekar,  
-Tidak perlu meminta pagi datang lebih cepat.
-
-Sebab kalau memang ada sesuatu  
-yang ditakdirkan tumbuh di antara kita,  
-semoga ia tumbuh bukan karena terburu-buru,  
-melainkan karena kita sama-sama  
-merasa nyaman untuk tinggal.
-
-Dan kalau memang belum waktunya,  
-Gapapa.
-
-Kita masih punya hari ini  
-untuk saling mengenal lebih jauh.
-
-Barangkali, kita memang hanya teman.  
-Untuk saat ini.
-
-Dan untuk segala kemungkinan setelahnya,  
-biarlah waktu yang bercerita. 
-
-thank you udah baca. ♡`;
-
-    const reasons = [
-      "Sifat.",
-      "Semangat,",
-      "Mandiri,",
-      "Percaya Diri",
-      "Pelayanan Gereja",
-      "Rambut",
-      "Senyuman",
-      "Ketawa",
-      "Bersin (jujur unik)",
-      "Dari semuanya, gua lebih suka lu diem sih"
-    ];
-
-    const reasonIcons = ["☼", "✿", "❧", "♡", "☾", "✧", "❀", "☘", "☆", "♧"];
-
-    // Membuat dekorasi daun yang bergerak lambat.
-    const gardenBg = document.getElementById("gardenBg");
-    const leafSymbols = ["✦", "❧", "✿", "·"];
-    for (let i = 0; i < 12; i++) {
-      const leaf = document.createElement("span");
-      leaf.className = "floating-leaf";
-      leaf.textContent = leafSymbols[i % leafSymbols.length];
-      leaf.style.left = (Math.random() * 100) + "%";
-      leaf.style.animationDuration = (18 + Math.random() * 10) + "s";
-      leaf.style.animationDelay = (-Math.random() * 24) + "s";
-      leaf.style.fontSize = (12 + Math.random() * 13) + "px";
-      gardenBg.appendChild(leaf);
-    }
-
-    // Menampilkan kartu alasan.
-    const reasonsGrid = document.getElementById("reasonsGrid");
-    reasons.forEach((reason, index) => {
-      const card = document.createElement("button");
-      card.type = "button";
-      card.className = "reason-card";
-      card.setAttribute("aria-label", "Buka alasan nomor " + (index + 1));
-      card.innerHTML = `
-        <div class="reason-inner">
-          <div class="reason-front">
-            <span class="reason-number">${String(index + 1).padStart(2, "0")}</span>
-            <span>${reasonIcons[index]} Tap to reveal</span>
-          </div>
-          <div class="reason-back">
-            <span class="reason-icon">${reasonIcons[index]}</span>
-            <p></p>
-          </div>
-        </div>`;
-      card.querySelector(".reason-back p").textContent = reason;
-      card.addEventListener("click", () => card.classList.toggle("flipped"));
-      reasonsGrid.appendChild(card);
-    });
-
-    // Surat cinta: buka dan tutup.
-    const letterModal = document.getElementById("letterModal");
-    document.getElementById("letterBody").textContent = loveLetter;
-
-    function openLetter() {
-      letterModal.classList.add("open");
-      document.body.style.overflow = "hidden";
-    }
-    function closeLetter() {
-      letterModal.classList.remove("open");
-      document.body.style.overflow = "";
-    }
-    document.getElementById("openLetter").addEventListener("click", openLetter);
-    document.getElementById("openLetterHero").addEventListener("click", openLetter);
-    document.getElementById("closeLetter").addEventListener("click", closeLetter);
-    letterModal.addEventListener("click", (event) => {
-      if (event.target === letterModal) closeLetter();
-    });
-
-    // Galeri: klik foto untuk memperbesar.
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightboxImage");
-    document.querySelectorAll(".memory-card").forEach((card) => {
-      const showImage = () => {
-        const img = card.querySelector("img");
-        lightboxImage.src = img.src;
-        lightboxImage.alt = img.alt;
-        lightbox.classList.add("open");
-      };
-      card.addEventListener("click", showImage);
-      card.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          showImage();
+          previousMove = first;
         }
-      });
-    });
-    function closeLightbox() {
-      lightbox.classList.remove("open");
-      lightboxImage.src = "";
-    }
-    document.getElementById("closeLightbox").addEventListener("click", closeLightbox);
-    lightbox.addEventListener("click", (event) => {
-      if (event.target === lightbox) closeLightbox();
-    });
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        closeLetter();
-        closeLightbox();
+
+        if (pieces.every((piece, index) => piece === index)) {
+          [pieces[0], pieces[1]] = [pieces[1], pieces[0]];
+        }
       }
-    });
 
-    // Dua pemutar musik. Saat satu lagu dimainkan, lagu lainnya otomatis berhenti.
-    const musicPlayers = [
-      {
-        audio: document.getElementById("musicOne"),
-        record: document.getElementById("recordOne"),
-        button: document.getElementById("toggleOne"),
-        status: document.getElementById("statusOne")
-      },
-      {
-        audio: document.getElementById("musicTwo"),
-        record: document.getElementById("recordTwo"),
-        button: document.getElementById("toggleTwo"),
-        status: document.getElementById("statusTwo")
-      }
-    ];
+      function renderPuzzle() {
+        board.innerHTML = "";
 
-    function updatePlayer(player, isPlaying) {
-      player.record.classList.toggle("playing", isPlaying);
-      player.button.textContent = isPlaying ? "Ⅱ Pause music" : "▶ Play music";
-      player.status.textContent = isPlaying ? "Playing for you ♡" : "Paused ♡";
-    }
+        pieces.forEach((piece, position) => {
+          const tile = document.createElement("button");
+          tile.type = "button";
+          tile.className = "puzzle-piece";
 
-    musicPlayers.forEach((player, index) => {
-      player.button.addEventListener("click", async () => {
-        if (player.audio.paused) {
-          // Hentikan lagu lain terlebih dahulu.
-          musicPlayers.forEach((otherPlayer, otherIndex) => {
-            if (otherIndex !== index) {
-              otherPlayer.audio.pause();
-              otherPlayer.audio.currentTime = 0;
-              updatePlayer(otherPlayer, false);
-            }
+          const row = Math.floor(piece / 3);
+          const col = piece % 3;
+
+          tile.style.backgroundPosition =
+            `${col * 50}% ${row * 50}%`;
+
+          tile.setAttribute(
+            "aria-label",
+            "Potongan puzzle " + (position + 1)
+          );
+
+          if (selected === position) {
+            tile.classList.add("selected");
+          }
+
+          tile.addEventListener("click", () => {
+            selectPiece(position);
           });
 
-          try {
-            await player.audio.play();
-            updatePlayer(player, true);
-          } catch (error) {
-            player.status.textContent = "Pastikan file MP3 ada di folder website ♡";
-          }
+          board.appendChild(tile);
+        });
+      }
+
+      function selectPiece(position) {
+        if (completed) return;
+
+        if (selected === null) {
+          selected = position;
+          renderPuzzle();
+          message.textContent =
+            "Sekarang pilih potongan kedua ♡";
+          return;
+        }
+
+        if (selected === position) {
+          selected = null;
+          renderPuzzle();
+          message.textContent =
+            "Pilih dua potongan untuk ditukar.";
+          return;
+        }
+
+        [pieces[selected], pieces[position]] =
+          [pieces[position], pieces[selected]];
+
+        selected = null;
+        renderPuzzle();
+        checkPuzzle();
+      }
+
+      function checkPuzzle() {
+        const solved = pieces.every(
+          (piece, index) => piece === index
+        );
+
+        if (solved) {
+          completed = true;
+          message.textContent =
+            "You found every piece! ♡";
+
+          enterButton.classList.add("show");
         } else {
-          player.audio.pause();
-          updatePlayer(player, false);
+          message.textContent =
+            "Almost there. Keep going! ♡";
         }
+      }
+
+      enterButton.addEventListener("click", () => {
+        gate.classList.add("unlocked");
+        document.body.style.overflow = "";
       });
 
-      player.audio.addEventListener("ended", () => updatePlayer(player, false));
-      player.audio.addEventListener("pause", () => {
-        if (player.audio.currentTime === 0 || player.audio.ended) {
-          updatePlayer(player, false);
-        }
-      });
-    });
+      document.body.style.overflow = "hidden";
 
+      shufflePuzzle();
+      renderPuzzle();
+    })();
   </script>
+
 </body>
 </html>
