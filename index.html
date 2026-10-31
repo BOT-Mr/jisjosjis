@@ -256,14 +256,21 @@
       width: 72px; height: 1px; background: var(--gold); margin: 18px auto 0;
     }
 
+    .music-library {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
     .music-panel {
       display: grid;
       grid-template-columns: 150px 1fr;
       gap: 28px;
       align-items: center;
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 28px;
+      min-width: 0;
+      margin: 0;
+      padding: 24px;
       border: 1px solid rgba(105,118,90,.2);
       background: rgba(255,255,255,.66);
       border-radius: 22px;
@@ -294,11 +301,13 @@
     .play-button:hover { background: var(--deep); transform: translateY(-2px); }
     .music-status { color: var(--olive); font-size: .8rem; }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
     .memory-card {
       position: relative;
       border-radius: 18px;
@@ -313,6 +322,14 @@
     .memory-card:hover { transform: translateY(-4px) rotate(.3deg); box-shadow: 0 18px 42px rgba(57,63,52,.13); }
     .memory-card img { display: block; width: 100%; height: 340px; object-fit: cover; filter: saturate(.85); transition: transform 1.2s ease-in-out; }
     .memory-card:hover img { transform: scale(1.035); }
+.memory-card.watermark-card {
+  grid-column: 1 / -1;
+}
+
+.memory-card.watermark-card img {
+  height: 500px;
+  object-position: center 42%;
+}
     .memory-caption {
       position: absolute; inset: auto 0 0; padding: 35px 20px 17px;
       color: white; background: linear-gradient(transparent, rgba(30,39,29,.72));
@@ -408,6 +425,7 @@
       .hero-actions { justify-content: center; }
       .hero-art { min-height: 390px; }
       .reasons-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .music-library { grid-template-columns: 1fr; max-width: 520px; }
       .music-panel { grid-template-columns: 120px 1fr; gap: 20px; }
       .record { width: 110px; }
     }
@@ -426,8 +444,10 @@
       section.content-section { width: calc(100% - 30px); padding: 52px 0; }
       .music-panel { grid-template-columns: 1fr; text-align: center; padding: 24px 18px; }
       .music-controls { justify-content: center; }
-      .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
-      .memory-card img { height: 290px; }
+      .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .memory-card img { height: 180px; }
+      .memory-card.watermark-card { grid-column: 1 / -1; }
+      .memory-card.watermark-card img { height: 320px; }
       .reasons-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
       .reason-card, .reason-inner { min-height: 150px; }
       .reason-front, .reason-back { padding: 12px 9px; }
@@ -475,7 +495,7 @@
             <div class="image-placeholder" style="display:none">A little reminder that beautiful things grow gently.</div>
           </div>
           <div class="floating-note note-one">you make life softer</div>
-          <div class="floating-note note-two">one of my favorite people (emoji lope)</div>
+          <div class="floating-note note-two">one of my favorite people</div>
         </div>
       </section>
 
@@ -484,34 +504,49 @@
   <div class="section-head">
     <div class="section-kicker">music</div>
     <h2>This music is for you.</h2>
-    <p>Please tap the "play music" text to access the audio.</p>
+    <p>Two songs, each with its own little vinyl record. ♡</p>
     <div class="section-rule"></div>
   </div>
 
-  <div class="music-panel">
-    <div class="record-wrap">
-      <div class="record" id="record">
-        <div class="record-label">♡</div>
+  <div class="music-library">
+    <div class="music-panel">
+      <div class="record-wrap">
+        <div class="record" id="recordOne">
+          <div class="record-label">♡</div>
+        </div>
+      </div>
+      <div class="music-info">
+        <h3>A song for you</h3>
+        <p>Soft song · made for a little moment</p>
+        <audio id="musicOne" loop preload="metadata">
+          <source src="lagu-1.mp3" type="audio/mpeg">
+          Browser kamu tidak mendukung audio.
+        </audio>
+        <div class="music-controls">
+          <button class="play-button" id="toggleOne" type="button">▶ Play music</button>
+          <span class="music-status" id="statusOne">Ready when you are ♡</span>
+        </div>
       </div>
     </div>
 
-    <div class="music-info">
-      <h3>A song for you</h3>
-      <p>Soft song · made for a little moment</p>
-    </div>
-
-    <audio id="romanticMusic" loop preload="metadata">
-      <source src="romantic.mp3" type="audio/mpeg">
-      Browser kamu tidak mendukung audio.
-    </audio>
-
-    <div class="music-controls">
-      <button class="play-button" id="musicToggle" type="button">
-        ▶ Play music
-      </button>
-      <span class="music-status" id="musicStatus">
-        Ready when you are ♡
-      </span>
+    <div class="music-panel">
+      <div class="record-wrap">
+        <div class="record" id="recordTwo">
+          <div class="record-label">✿</div>
+        </div>
+      </div>
+      <div class="music-info">
+        <h3>Another song just for you</h3>
+        <p>Soft song · made for a little moment</p>
+        <audio id="musicTwo" loop preload="metadata">
+          <source src="lagu-2.mp3" type="audio/mpeg">
+          Browser kamu tidak mendukung audio.
+        </audio>
+        <div class="music-controls">
+          <button class="play-button" id="toggleTwo" type="button">▶ Play music</button>
+          <span class="music-status" id="statusTwo">Ready when you are ♡</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -525,19 +560,59 @@
         <div class="gallery-grid">
           <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto pertama">
             <img class="memory-photo" src="foto-1.png" alt="Photo 1" loading="lazy">
-            <div class="memory-caption">LAGI NGADON RISOL</div>
+            <div class="memory-caption">FIRST TIME SERAGAMAN</div>
           </div>
           <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto kedua">
             <img class="memory-photo" src="foto-2.png" alt="Photo 2" loading="lazy">
-            <div class="memory-caption">MAU PULANG KERJA</div>
+            <div class="memory-caption">NGADON RISOL</div>
           </div>
           <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto ketiga">
             <img class="memory-photo" src="foto-3.png" alt="Photo 3" loading="lazy">
-            <div class="memory-caption">SELESAI NGADON RISOL</div>
+            <div class="memory-caption">UTIWI</div>
           </div>
           <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto keempat">
             <img class="memory-photo" src="foto-4.png" alt="Photo 4" loading="lazy">
-            <div class="memory-caption">BERANGKAT LDK HIMA</div>
+            <div class="memory-caption">PULANG NGANTOR</div>
+          </div>
+          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto kelima">
+            <img class="memory-photo" src="foto-5.png" alt="Photo 5" loading="lazy">
+            <div class="memory-caption">SELESAI NGADON RISOL</div>
+          </div>
+          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto keenam">
+            <img class="memory-photo" src="foto-6.png" alt="Photo 6" loading="lazy">
+            <div class="memory-caption">SEBELUM BERANGKAT LDK HIMA</div>
+          </div>
+          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto ketujuh">
+            <img class="memory-photo" src="foto-7.png" alt="Photo 7" loading="lazy">
+            <div class="memory-caption">OTW LDK HIMA</div>
+          </div>
+          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto kelapan">
+            <img class="memory-photo" src="foto-8.png" alt="Photo 8" loading="lazy">
+            <div class="memory-caption">LAGI LDK HIMA</div>
+          </div>
+          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto kesembilan">
+            <img class="memory-photo" src="foto-9.png" alt="Photo 9" loading="lazy">
+            <div class="memory-caption">PELAYANAN GEREJA</div>
+          </div>
+          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto kesepuluh">
+            <img class="memory-photo" src="foto-10.png" alt="Photo 10" loading="lazy">
+            <div class="memory-caption">KELAR PELAYANAN KE TEAZI</div>
+          </div>
+          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto kesebelas">
+            <img class="memory-photo" src="foto-11.png" alt="Photo 11" loading="lazy">
+            <div class="memory-caption">SALAH MASUK KELAS MANAGEMENT</div>
+          </div>
+          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto keduabelas">
+            <img class="memory-photo" src="foto-12.png" alt="Photo 12" loading="lazy">
+            <div class="memory-caption">BRO DANIEL MIJITIN KAKI CECEHNYA</div>
+          </div>
+          <div class="memory-card" tabindex="0" role="button" aria-label="Perbesar foto ketigabelas">
+            <img class="memory-photo" src="foto-13.png" alt="Photo 13" loading="lazy">
+            <div class="memory-caption">KECAPEAN BIKIN RISOL</div>
+          </div>
+          <div class="memory-card watermark-card" tabindex="0" role="button" aria-label="Perbesar foto keempatbelas">
+            <img class="memory-photo" src="foto-14.png" alt="Photo 14" loading="lazy">
+            <div class="memory-caption">INI TUH WATERMARK</div>
           </div>
         </div>
         <p class="gallery-tip">Tip: klik foto untuk melihatnya lebih besar.</p>
@@ -770,102 +845,60 @@ thank you udah baca. ♡`;
       }
     });
 
-    // Musik ambient sederhana dibuat langsung oleh browser (bukan file lagu).
-    let audioContext = null;
-    let masterGain = null;
-    let musicTimer = null;
-    let musicPlaying = false;
-    let noteIndex = 0;
-    const notes = [
-      [261.63, 329.63, 392.00, 523.25],
-      [220.00, 261.63, 329.63, 440.00],
-      [174.61, 220.00, 261.63, 392.00],
-      [196.00, 246.94, 293.66, 392.00],
-      [196.00, 261.63, 329.63, 493.88],
-      [174.61, 220.00, 293.66, 440.00]
+    // Dua pemutar musik. Saat satu lagu dimainkan, lagu lainnya otomatis berhenti.
+    const musicPlayers = [
+      {
+        audio: document.getElementById("musicOne"),
+        record: document.getElementById("recordOne"),
+        button: document.getElementById("toggleOne"),
+        status: document.getElementById("statusOne")
+      },
+      {
+        audio: document.getElementById("musicTwo"),
+        record: document.getElementById("recordTwo"),
+        button: document.getElementById("toggleTwo"),
+        status: document.getElementById("statusTwo")
+      }
     ];
-    
-const record = document.getElementById("record");
-const musicToggle = document.getElementById("musicToggle");
-const musicStatus = document.getElementById("musicStatus");
-const romanticMusic = document.getElementById("romanticMusic");
 
-musicToggle.addEventListener("click", async () => {
-  if (romanticMusic.paused) {
-    try {
-      await romanticMusic.play();
-
-      musicToggle.textContent = "Ⅱ Pause music";
-      musicStatus.textContent = "Playing for you ♡";
-      record.classList.add("playing");
-    } catch (error) {
-      musicStatus.textContent =
-        "Cek file romantic.mp3 di folder website kamu ♡";
+    function updatePlayer(player, isPlaying) {
+      player.record.classList.toggle("playing", isPlaying);
+      player.button.textContent = isPlaying ? "Ⅱ Pause music" : "▶ Play music";
+      player.status.textContent = isPlaying ? "Playing for you ♡" : "Paused ♡";
     }
-  } else {
-    romanticMusic.pause();
 
-    musicToggle.textContent = "▶ Play music";
-    musicStatus.textContent = "Paused ♡";
-    record.classList.remove("playing");
-  }
-});
+    musicPlayers.forEach((player, index) => {
+      player.button.addEventListener("click", async () => {
+        if (player.audio.paused) {
+          // Hentikan lagu lain terlebih dahulu.
+          musicPlayers.forEach((otherPlayer, otherIndex) => {
+            if (otherIndex !== index) {
+              otherPlayer.audio.pause();
+              otherPlayer.audio.currentTime = 0;
+              updatePlayer(otherPlayer, false);
+            }
+          });
 
-    async function startMusic() {
-      try {
-        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContextClass) {
-          musicStatus.textContent = "Browser ini belum mendukung pemutar melodi.";
-          return;
-        }
-        if (!audioContext) {
-          audioContext = new AudioContextClass();
-          masterGain = audioContext.createGain();
-          masterGain.gain.value = 0.55;
-          masterGain.connect(audioContext.destination);
-        }
-        await audioContext.resume();
-        musicPlaying = true;
-        record.classList.add("playing");
-        musicToggle.textContent = "Ⅱ Pause melody";
-        musicStatus.textContent = "A soft romantic melody is playing";
-        playChord(notes[noteIndex % notes.length]);
-        noteIndex++;
-        musicTimer = window.setInterval(() => {
-          if (musicPlaying) {
-            playChord(notes[noteIndex % notes.length]);
-            noteIndex++;
+          try {
+            await player.audio.play();
+            updatePlayer(player, true);
+          } catch (error) {
+            player.status.textContent = "Pastikan file MP3 ada di folder website ♡";
           }
-        }, 5200);
-      } catch (error) {
-        musicStatus.textContent = "Musik tidak dapat dimulai di browser ini.";
-      }
-    }
-
-    function stopMusic() {
-      musicPlaying = false;
-      if (musicTimer) {
-        window.clearInterval(musicTimer);
-        musicTimer = null;
-      }
-      if (audioContext && masterGain) {
-        masterGain.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.15);
-      }
-      record.classList.remove("playing");
-      musicToggle.textContent = "▶ Play melody";
-      musicStatus.textContent = "Paused — take your time";
-    }
-
-    musicToggle.addEventListener("click", async () => {
-      if (musicPlaying) {
-        stopMusic();
-      } else {
-        if (masterGain && audioContext) {
-          masterGain.gain.setTargetAtTime(0.55, audioContext.currentTime, 0.15);
+        } else {
+          player.audio.pause();
+          updatePlayer(player, false);
         }
-        await startMusic();
-      }
+      });
+
+      player.audio.addEventListener("ended", () => updatePlayer(player, false));
+      player.audio.addEventListener("pause", () => {
+        if (player.audio.currentTime === 0 || player.audio.ended) {
+          updatePlayer(player, false);
+        }
+      });
     });
+
   </script>
 </body>
 </html>
