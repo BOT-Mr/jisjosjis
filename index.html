@@ -418,6 +418,172 @@
     .lightbox .close-button { top: 20px; right: 20px; }
 
     footer { text-align: center; color: #88897D; font-size: .76rem; padding: 0 18px 28px; }
+    /* OUR LITTLE TIMELINE */
+.timeline {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  padding: 8px 0;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--gold);
+  transform: translateX(-50%);
+}
+.timeline-item {
+  width: 50%;
+  padding: 15px 35px;
+  position: relative;
+}
+.timeline-item:nth-child(odd) {
+  margin-right: auto;
+  text-align: right;
+}
+.timeline-item:nth-child(even) {
+  margin-left: 50%;
+  text-align: left;
+}
+.timeline-item::after {
+  content: "♡";
+  position: absolute;
+  top: 27px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1px solid var(--gold);
+  color: var(--olive);
+  font-size: 13px;
+}
+.timeline-item:nth-child(odd)::after { right: -14px; }
+.timeline-item:nth-child(even)::after { left: -14px; }
+.timeline-card {
+  padding: 18px;
+  border-radius: 17px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(105,118,90,.18);
+  box-shadow: var(--shadow);
+}
+.timeline-card img {
+  display: block;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 11px;
+  margin-bottom: 12px;
+}
+.timeline-card h3 {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  color: var(--olive-dark);
+  margin: 0 0 5px;
+}
+.timeline-card p {
+  font-size: .85rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* A LITTLE SECRET */
+.secret-card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 35px 22px;
+  text-align: center;
+  border: 1px solid rgba(200,180,134,.55);
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(255,255,255,.85), rgba(225,229,217,.65));
+  box-shadow: var(--shadow);
+}
+.secret-envelope {
+  font-size: 3.8rem;
+  display: inline-block;
+  animation: gentle-float 4s ease-in-out infinite;
+  margin-bottom: 10px;
+}
+.secret-card h3 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.secret-card p {
+  color: var(--muted);
+  font-size: .9rem;
+  margin-bottom: 20px;
+}
+.secret-message {
+  display: none;
+  max-width: 440px;
+  margin: 22px auto 0;
+  padding: 22px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.75);
+  color: var(--deep);
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  animation: fade-up .8s ease both;
+}
+.secret-message.show { display: block; }
+
+/* ONE LAST THING */
+.last-thing {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gold-light);
+  text-align: center;
+}
+.last-thing button {
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--olive-dark);
+  padding: 10px 18px;
+  font-weight: 800;
+  transition: background .3s ease;
+}
+.last-thing button:hover { background: var(--sage); }
+.last-thing-message {
+  display: none;
+  margin-top: 18px;
+  padding: 18px;
+  background: rgba(225,229,217,.55);
+  border-radius: 12px;
+  color: var(--olive-dark);
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+.last-thing-message.show {
+  display: block;
+  animation: fade-up .8s ease both;
+}
+
+@media (max-width: 560px) {
+  .timeline::before { left: 13px; }
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    width: 100%;
+    margin: 0;
+    padding: 12px 0 12px 42px;
+    text-align: left;
+  }
+  .timeline-item:nth-child(odd)::after,
+  .timeline-item:nth-child(even)::after {
+    left: 0;
+    right: auto;
+  }
+  .timeline-card img { height: 190px; }
+}
 
     @media (max-width: 850px) {
       .hero { grid-template-columns: 1fr; gap: 15px; padding-top: 30px; text-align: center; }
@@ -470,7 +636,7 @@
   <div class="site-wrap">
     <header class="topbar">
       <div class="brand">♡</div>
-      <a class="top-link" href="#letter">a note for you</a>
+      <a class="top-link" href="#letter">a special letter for you</a>
     </header>
 
     <main>
@@ -616,7 +782,83 @@
           </div>
         </div>
         <p class="gallery-tip">Tip: klik foto untuk melihatnya lebih besar.</p>
+
       </section>
+      <!-- OUR LITTLE TIMELINE -->
+<section class="content-section" id="timeline">
+  <div class="section-head">
+    <div class="section-kicker">our little timeline</div>
+    <h2>Little moments, little memories.</h2>
+    <p>Some little moments that made me smile and will always be nice to remember..</p>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <img src="foto-1.png" alt="First time seragaman" loading="lazy">
+        <h3>Our First Matching Uniform</h3>
+        <p>Thursday, 22 October 2026 (u told me "first time seragaman" — the first photo u gave me hehe)</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <img src="foto-7.png" alt="OTW LDK HIMA" loading="lazy">
+        <h3>A Little Update from LDK</h3>
+        <p>Saturday, 24 October 2026 (u told me u were going to join LDK — kinda regret not joining HIMA hehe)</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <img src="foto-8.png" alt="LAGI LDK HIMA" loading="lazy">
+        <h3>A Little Update from LDK</h3>
+        <p>Saturday, 24 October 2026 (u texted me while u were at LDK HIMA hehe)</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <img src="foto-11.png" alt="A special memory" loading="lazy">
+        <h3>Wrong class hahahaa</h3>
+        <p>Monday, 26 October 2026 (hehe, inget ga when u entered the wrong classroom?)</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <img src="foto-13.png" alt="Kecapean bikin Risol" loading="lazy">
+        <h3>Ending?...</h3>
+        <p>Monday, 26 October 2026 (hehe, this was the last photo u gave me)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A LITTLE NOTE-->
+<section class="content-section" id="secret">
+  <div class="section-head">
+    <div class="section-kicker">psst... a little note</div>
+    <h2>Something just for you.</h2>
+    <p>Ada catetan yang w tulis disini.</p>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="secret-card">
+    <div class="secret-envelope">✉</div>
+    <h3>A little something</h3>
+    <p>Click Open to Read</p>
+    <button class="btn btn-primary" id="openSecret" type="button">
+      Open a little note
+    </button>
+    <div class="secret-message" id="secretMessage">
+      "Akhir-akhir ini gua feel like something's different with u hehe. Like, biasanya u selalu kabarin gua tentang ini itu, selalu bales chat gua, and all those little things. Mungkin ini salah gua juga karena terlalu excited. Mungkin u ga selalu sadar, but ever since u came into my life, everything felt a little more colorful. And, gua ngerasain yang namanya 'butterflies era?!'. Tapi sejak semuanya mulai berubah, somehow kita malah makin jauh hehe. Maaf ya."
+      <br><br>
+      <span style="font-size:1rem;">— miss u MD</span>
+    </div>
+  </div>
+</section>
 
       <section class="content-section" id="reasons">
         <div class="section-head">
@@ -631,7 +873,7 @@
       <section class="content-section" id="letter">
         <div class="letter-panel">
           <div class="letter-seal">✿</div>
-          <h3>A Poetry</h3>
+          <h3>A Special Letter</h3>
           <p>Ada beberapa hal yang lebih nyaman ditulis pelan-pelan, supaya kamu bisa membacanya kapan pun kamu mau.</p>
           <button class="btn btn-primary" id="openLetter" type="button">Open</button>
         </div>
@@ -652,6 +894,26 @@
       <h2 id="letterTitle">A little letter from me</h2>
       <div class="letter-body" id="letterBody"></div>
       <div class="letter-sign">with love ♡ (friend)</div>
+
+<div class="last-thing">
+  <button type="button" id="revealLastThing">
+    One last thing ♡
+  </button>
+
+  <div class="last-thing-message" id="lastThingMessage">
+    Dan satu hal lagi...
+
+    <br><br>
+
+    Jangan lupa untuk tetap menjadi dirimu sendiri.
+    Tetap bertumbuh, tetap tersenyum, dan jangan terlalu keras pada diri sendiri.
+
+    <br><br>
+
+    Aku harap hari-harimu selalu dipenuhi hal-hal baik.
+    Take care of yourself, okay? ♡
+  </div>
+</div>
     </div>
   </div>
 
@@ -742,9 +1004,9 @@ biarlah waktu yang bercerita.
 thank you udah baca. ♡`;
 
     const reasons = [
-      "Sifat.",
-      "Semangat,",
-      "Mandiri,",
+      "Sifat",
+      "Semangat",
+      "Mandiri",
       "Percaya Diri",
       "Pelayanan Gereja",
       "Rambut",
@@ -897,6 +1159,30 @@ thank you udah baca. ♡`;
           updatePlayer(player, false);
         }
       });
+    });
+
+    // Membuka pesan rahasia.
+    const openSecretButton = document.getElementById("openSecret");
+    const secretMessage = document.getElementById("secretMessage");
+
+    openSecretButton.addEventListener("click", () => {
+      secretMessage.classList.toggle("show");
+
+      openSecretButton.textContent = secretMessage.classList.contains("show")
+        ? "Close the note"
+        : "Open the note";
+    });
+
+    // Membuka pesan terakhir di dalam surat.
+    const revealLastThing = document.getElementById("revealLastThing");
+    const lastThingMessage = document.getElementById("lastThingMessage");
+
+    revealLastThing.addEventListener("click", () => {
+      lastThingMessage.classList.toggle("show");
+
+      revealLastThing.textContent = lastThingMessage.classList.contains("show")
+        ? "Hide this message"
+        : "One last thing ♡";
     });
 
   </script>
